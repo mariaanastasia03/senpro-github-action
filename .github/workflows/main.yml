@@ -39,8 +39,11 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
+            git pull
             export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
+            source ~/.nvm/nvm.sh                
+            npm install
+            npm run start_server
             eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/senpro-inhal-1
             echo "Cek folder project";
