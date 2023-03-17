@@ -38,7 +38,8 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: eval "$(ssh-agent -s)"
+          script: |
+            eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/senpro-inhal-1
             echo "Cek folder project";
             [ ! -d "${HOME}/senpro/460551/modul02/senpro-github-action/" ] &&
